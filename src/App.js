@@ -3,17 +3,28 @@ import "./App.css";
 import axios from "axios";
 
 function App() {
-  const [test, setTest] = useState({
-    text: "",
-  });
+  const [text, setText] = useState("나는");
+
+  const buttonHandler = () => {
+    setText("존잘남");
+  };
 
   useEffect(() => {
-    console.log("실행됨");
-  }, []);
+    console.log("맞아그거");
+  }, [text]);
+
   return (
     <div className="App">
-      <div>hello</div>
-      <div>{test}</div>
+      <div>
+        <h1>hello</h1>
+        <button onClick={buttonHandler}>버튼</button>
+        <h2>{text}</h2>
+        <input
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+        ></input>
+      </div>
     </div>
   );
 }
